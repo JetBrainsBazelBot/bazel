@@ -19,6 +19,14 @@ exclude:
     paths:
       - src/main/starlark/builtins_bzl/common
       - src/test/shell
+  - name: MarkedForRemoval
+    paths:
+      - src/main/java/com/google/devtools/build/lib/unix/UnixFileSystem.java
+      - src/main/java/com/google/devtools/build/lib/unsafe/UnsafeProvider.java
+      - src/test/java/com/google/devtools/build/lib/actions/ArtifactTest.java
+  - name: HardcodedPasswords
+    paths:
+      - src/main/java/com/google/devtools/build/lib/actions/ActionAnalysisMetadata.java
   - name: CheckDependencyLicenses
   - name: UnnecessaryUnicodeEscape
   - name: UnstableApiUsage

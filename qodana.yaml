@@ -9,6 +9,16 @@ exclude:
     paths:
       - .github
       - .bazelci
+      - src/java_tools/junitrunner/javatests/com/google/testing/junit/runner/stack_trace_integration_tests.sh
+      - "file:"
+      - scripts
+      - third_party
+      - src/test/shell
+      - src/package-bazel.sh
+  - name: QodanaSanity
+    paths:
+      - src/main/starlark/builtins_bzl/common
+      - src/test/shell
   - name: CheckDependencyLicenses
   - name: UnnecessaryUnicodeEscape
   - name: UnstableApiUsage

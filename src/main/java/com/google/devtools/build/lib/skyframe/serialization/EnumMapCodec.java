@@ -113,7 +113,7 @@ class EnumMapCodec extends AsyncObjectCodec<EnumMap> {
     public void run() {
       if (remaining.decrementAndGet() == 0) {
         for (int i = 0; i < enums.length; i++) {
-          result.put((Enum) enums[i], values[i]);
+          result.put(enums[i], values[i]);
         }
       }
     }

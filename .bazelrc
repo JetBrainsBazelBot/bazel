@@ -1,3 +1,5 @@
+try-import %workspace%/.cache.bazelrc
+
 common --enable_platform_specific_config
 common --incompatible_use_plus_in_repo_names
 common --experimental_google_legacy_api # needed by protobuf

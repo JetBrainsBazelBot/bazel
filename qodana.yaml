@@ -19,6 +19,7 @@ exclude:
     paths:
       - src/main/starlark/builtins_bzl/common
       - src/test/shell
+      - src/test/java/net/starlark/java/eval/testdata
   - name: MarkedForRemoval
     paths:
       - src/main/java/com/google/devtools/build/lib/unix/UnixFileSystem.java

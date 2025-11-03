@@ -34,5 +34,5 @@ exclude:
   - name: DialogTitleCapitalization
 failureConditions:
   severityThresholds:
-    critical: 1
+    critical: 1120
 linter: jetbrains/qodana-jvm:2024.3

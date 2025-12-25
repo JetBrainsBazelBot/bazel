@@ -6,7 +6,7 @@ profile:
     - groupId: PluginRegressions
       inspections:
         - QodanaSanity
-        - HighlightVisitorInternal
+        - UnresolvedPropertyKey
   inspections:
     - group: PluginRegressions
       enabled: true

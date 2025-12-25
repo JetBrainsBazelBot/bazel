@@ -1,38 +1,48 @@
 version: "1.0"
 profile:
-  name: qodana.recommended
-include:
-  - name: QodanaSanity
-  - name: HighlightVisitorInternal
-exclude:
-  - name: All
-    paths:
-      - .github
-      - .bazelci
-      - src/java_tools/junitrunner/javatests/com/google/testing/junit/runner/stack_trace_integration_tests.sh
-      - "file:"
-      - scripts
-      - third_party
-      - src/test/shell
-      - src/package-bazel.sh
-  - name: QodanaSanity
-    paths:
-      - src/main/starlark/builtins_bzl/common
-      - src/test/shell
-      - src/test/java/net/starlark/java/eval/testdata
-  - name: MarkedForRemoval
-    paths:
-      - src/main/java/com/google/devtools/build/lib/unix/UnixFileSystem.java
-      - src/main/java/com/google/devtools/build/lib/unsafe/UnsafeProvider.java
-      - src/test/java/com/google/devtools/build/lib/actions/ArtifactTest.java
-  - name: HardcodedPasswords
-    paths:
-      - src/main/java/com/google/devtools/build/lib/actions/ActionAnalysisMetadata.java
-  - name: CheckDependencyLicenses
-  - name: UnnecessaryUnicodeEscape
-  - name: UnstableApiUsage
-  - name: DialogTitleCapitalization
+  base:
+    name: empty
+  groups:
+    - groupId: PluginRegressions
+      inspections:
+        - QodanaSanity
+        - HighlightVisitorInternal
+  inspections:
+    - group: PluginRegressions
+      enabled: true
+      ignore:
+        # from `exclude: - name: All`
+        - ".github/**"
+        - ".bazelci/**"
+        - "scripts/**"
+        - "third_party/**"
+        - "src/test/shell/**"
+        - "src/java_tools/junitrunner/javatests/com/google/testing/junit/runner/stack_trace_integration_tests.sh"
+        - "src/package-bazel.sh"
+        - "file:*"
+
+        # from `exclude: - name: QodanaSanity`
+        - "src/main/starlark/builtins_bzl/common/**"
+        - "src/test/java/net/starlark/java/eval/testdata/**"
+
+        # common file extension to ignore
+        - "**/*.bash"
+        - "**/*.def"
+        - "**/*.ft"
+        - "**/*.http"
+        - "**/*.ignore"
+        - "**/*.json"
+        - "**/*.ndjson"
+        - "**/*.ps1"
+        - "**/*.rest"
+        - "**/*.rnc"
+        - "**/*.sh"
+        - "**/*.template"
+        - "**/*.toml"
+        - "**/*.vm"
+        - "**/*.yaml"
+        - "**/*.yml"
+        - "**/*.zsh"
 failureConditions:
   severityThresholds:
-    critical: 1120
-linter: jetbrains/qodana-jvm:2024.3
+    critical: 100
